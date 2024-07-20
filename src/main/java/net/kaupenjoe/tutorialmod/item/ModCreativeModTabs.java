@@ -1,6 +1,7 @@
 package net.kaupenjoe.tutorialmod.item;
 
 import net.kaupenjoe.tutorialmod.TutorialMod;
+import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -14,12 +15,14 @@ public class ModCreativeModTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TutorialMod.MOD_ID);
 
     public  static final RegistryObject<CreativeModeTab> TUTORIAL_TAB = CREATIVE_MODE_TABS.register("tutorial_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItem.SAPPHIRE.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SAPPHIRE.get()))
                     .title(Component.translatable("creativetab.tutorial_tab"))
                     .displayItems((pParameters, pOutput) -> {
-                      pOutput.accept(ModItem.SAPPHIRE.get());
-                      pOutput.accept(ModItem.RAW_SAPPHIRE.get());
+                      pOutput.accept(ModItems.SAPPHIRE.get());
+                      pOutput.accept(ModItems.RAW_SAPPHIRE.get());
 
+                      pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
+                      pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
                     })
                     .build());
 

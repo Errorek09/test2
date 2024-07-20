@@ -1,8 +1,9 @@
 package net.kaupenjoe.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.kaupenjoe.tutorialmod.item.ModCreativeModTabs;
-import net.kaupenjoe.tutorialmod.item.ModItem;
+import net.kaupenjoe.tutorialmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,7 +28,8 @@ public class    TutorialMod {
 
         ModCreativeModTabs.register(modEventBus);
 
-        ModItem.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -42,8 +44,8 @@ public class    TutorialMod {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItem.SAPPHIRE);
-            event.accept(ModItem.RAW_SAPPHIRE);
+            event.accept(ModItems.SAPPHIRE);
+            event.accept(ModItems.RAW_SAPPHIRE);
         }
     }
 
